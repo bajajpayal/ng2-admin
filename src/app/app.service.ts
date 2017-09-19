@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Http , Headers, RequestOptions } from '@angular/http';
 
 export type InternalStateType = {
   [key: string]: any
@@ -8,9 +9,13 @@ export type InternalStateType = {
 export class AppState {
   _state: InternalStateType = {};
 
-  constructor() {
+  constructor(private http: Http) {
   }
 
+  login(email, password) {
+  return this.http.post('http://localhost:8020/v1/boostAdmin/login',
+  JSON.stringify({ 'email' : email, 'password': password, 'role' : 1 }));
+  }
   // already return a clone of the current state
   get state() {
     return this._state = this._clone(this._state);
