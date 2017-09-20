@@ -15,12 +15,15 @@ export class GymAdminComponent {
   public email: AbstractControl;
   public submitted: boolean = false;
   settings = {
+    
     add: {
+      confirmCreate: true,
       addButtonContent: '<i class="ion-ios-plus-outline"></i>',
       createButtonContent: '<i class="ion-checkmark"></i>',
       cancelButtonContent: '<i class="ion-close"></i>',
     },
     edit: {
+      confirmSave: true,
       editButtonContent: '<i class="ion-edit"></i>',
       saveButtonContent: '<i class="ion-checkmark"></i>',
       cancelButtonContent: '<i class="ion-close"></i>',
@@ -63,6 +66,14 @@ export class GymAdminComponent {
       this.source.load(data.result.gym_data);
       console.log(this.source,"dskdksjbgkdsbgv")
     })
+}
+
+onCreateConfirm(event):void{
+
+}
+
+onEditConfirm(event):void{
+
 }
 
 onDeleteConfirm(event): void {
