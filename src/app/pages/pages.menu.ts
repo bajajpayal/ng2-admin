@@ -3,6 +3,19 @@ export const PAGES_MENU = [
     path: 'pages',
     children: [
       {
+        path: 'gymAdmin',  // path for our page
+        data: { // custom menu declaration
+          menu: {
+            title: 'Gym Management', // menu title
+            icon: 'ion-android-home', // menu icon
+            pathMatch: 'prefix', // use it if item children not displayed in menu
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: 'dashboard',
         data: {
           menu: {
@@ -291,7 +304,15 @@ export const PAGES_MENU = [
                 title: 'general.menu.register'
               }
             }
-          }
+          },
+          {
+            path: ['/forget'],  // path for our page
+            data: { // custom menu declaration
+              menu: {
+                title: 'Forget'
+              }
+            }
+          },
         ]
       },
       {

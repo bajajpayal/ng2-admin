@@ -1,0 +1,25 @@
+<div class="auth-main">
+    <div class="auth-block">
+      <h3 style="float:left; width:auto; margin:0;padding: 0;text-transform: uppercase;
+      opacity: 0.9;
+      font-size: 24px;">Forget Password</h3>
+  
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal" style="margin:10%">
+        <div class="form-group row" [ngClass]="{'has-error': (!email.valid && email.touched), 'has-success': (email.valid && email.touched)}">
+          <label for="inputEmail3" class="col-sm-2 control-label" translate>Email</label>
+  
+          <div class="col-sm-10">
+            <input [formControl]="email" type="email" style="color:black;background:rgb(250, 255, 189)" class="form-control" id="inputEmail3" >
+          </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <button [disabled]="!form.valid"  type="submit" class="btn btn-default btn-auth" translate>Send</button>
+            </div>
+          </div>
+      </form>
+  
+     
+    </div>
+  </div>
+  

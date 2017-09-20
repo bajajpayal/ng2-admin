@@ -12,10 +12,6 @@ export class AppState {
   constructor(private http: Http) {
   }
 
-  login(email, password) {
-  return this.http.post('http://localhost:8020/v1/boostAdmin/login',
-  JSON.stringify({ 'email' : email, 'password': password, 'role' : 1 }));
-  }
   // already return a clone of the current state
   get state() {
     return this._state = this._clone(this._state);

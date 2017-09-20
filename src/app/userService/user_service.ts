@@ -28,7 +28,61 @@ export class user_service {
           return (jsonError);
         }
     });   
+  };
+
+  forget(data)
+  {
+    return this.http.put('http://localhost:8020/v1/boostAdmin/forgotpassword',
+  data).map((res:Response)=> res.json())
+  .catch((error: any) =>{
+    try{
+      return(Observable.throw(error.json()));
+    }catch(jsonError)
+    {
+      return(jsonError);
+    }
+  })
+  };
+
+  getAllGyms()
+  {
+    var header = new Headers();
+    var token = localStorage.getItem('token');
+    header.append('x-logintoken',token);
+    return this.http.post('http://localhost:8020/v1/boostAdmin/getAllGyms',{},{headers : header}).map((res:Response)=> res.json())
+    .catch((error: any) =>{
+      try{
+        return(Observable.throw(error.json()));
+      }catch(jsonError)
+      {
+        return(jsonError);
+      }
+    })
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //api for logout
 //   logoutUser(){

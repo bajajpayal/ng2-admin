@@ -23,7 +23,7 @@ import { LargeButtons } from './components/buttons/components/largeButtons';
 import { DropdownButtons } from './components/buttons/components/dropdownButtons';
 import { GroupButtons } from './components/buttons/components/groupButtons';
 import { IconsService } from './components/icons/icons.service';
-import { DefaultModal } from './components/modals/default-modal/default-modal.component';
+//import { DefaultModal } from './components/modals/default-modal/default-modal.component';
 
 
 @NgModule({
@@ -52,11 +52,11 @@ import { DefaultModal } from './components/modals/default-modal/default-modal.co
     LargeButtons,
     DropdownButtons,
     GroupButtons,
-    DefaultModal
+    //DefaultModal
   ],
-  entryComponents: [
-    DefaultModal
-  ],
+  // entryComponents: [
+  //   DefaultModal
+  // ],
   providers: [
     IconsService
   ]
