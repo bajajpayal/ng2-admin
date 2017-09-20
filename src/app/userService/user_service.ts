@@ -58,6 +58,22 @@ export class user_service {
         return(jsonError);
       }
     })
+  };
+
+  deleteGym()
+  {
+    var header = new Headers();
+    var token = localStorage.getItem('token');
+    header.append('x-logintoken',token);
+    return this.http.post('http://localhost:8020/v1/boostAdmin/deleteGym',JSON.stringify({ "gymId" : '59bbc86cb498ca26714147b8' }),{headers: header}).map((res:Response)=> res.json())
+    .catch((error: any) =>{
+      try{
+        return(Observable.throw(error.json()));
+      }catch(jsonError)
+      {
+        return(jsonError);
+      }
+    });
   }
 
 

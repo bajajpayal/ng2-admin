@@ -79,6 +79,10 @@ onEditConfirm(event):void{
 onDeleteConfirm(event): void {
   if (window.confirm('Are you sure you want to delete?')) {
     event.confirm.resolve();
+    this.userservice.deleteGym().subscribe((data)=>
+  {
+    console.log(data,"deltedd gym");
+  });
   } else {
     event.confirm.reject();
   }
