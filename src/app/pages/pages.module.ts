@@ -5,12 +5,23 @@ import { routing }       from './pages.routing';
 import { NgaModule } from '../theme/nga.module';
 import { AppTranslationModule } from '../app.translation.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { DataTableModule } from "angular2-datatable";
 
 import { Pages } from './pages.component';
 
 @NgModule({
-  imports: [CommonModule, AppTranslationModule, NgaModule, routing,Ng2SmartTableModule],
-  declarations: [Pages,DefaultModal],
+  imports: [CommonModule, 
+      AppTranslationModule,
+      NgaModule,
+      routing,
+      Ng2SmartTableModule,
+      DataTableModule
+    ],
+  declarations: 
+  [
+    Pages,
+    DefaultModal
+  ],
   entryComponents: [
     DefaultModal
   ],

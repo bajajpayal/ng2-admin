@@ -11,80 +11,26 @@ import { LocalDataSource } from 'ng2-smart-table';
   styleUrls: ['./gymAdmin.scss']
 })
 export class GymAdminComponent {
-  public form: FormGroup;
-  public email: AbstractControl;
-  public submitted: boolean = false;
-  settings = {
-    
-    add: {
-      confirmCreate: true,
-      addButtonContent: '<i class="ion-ios-plus-outline"></i>',
-      createButtonContent: '<i class="ion-checkmark"></i>',
-      cancelButtonContent: '<i class="ion-close"></i>',
-    },
-    edit: {
-      confirmSave: true,
-      editButtonContent: '<i class="ion-edit"></i>',
-      saveButtonContent: '<i class="ion-checkmark"></i>',
-      cancelButtonContent: '<i class="ion-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="ion-trash-a"></i>',
-      confirmDelete: true
-    },
-    columns: {
-     
-      gymAdminemail: {
-        title: 'Admin Email',
-        type: 'string'
-      },
-      gymName: {
-        title: 'Gym Name',
-        type: 'string'
-      },
-      address: {
-        title: 'Address',
-        type: 'string'
-      },
-      isActive: {
-        title: 'Active',
-        type: 'string'
-      },
-      isPaymentRecieved: {
-        title: 'isPaymentRecieved',
-        type: 'string'
-      }
-    }
-  };
+  data;
+  limit;
+  
+  rowsOnPage = 5;
+  sortBy = "name";
+  sortOrder = "asc";
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(fb: FormBuilder, private userservice: user_service, private router: Router) {
+  constructor( private userservice: user_service, private router: Router) {
     this.userservice.getAllGyms().subscribe((data)=>
     {
       console.log(data.result.gym_data,"getallgymm-----------")
-      this.source.load(data.result.gym_data);
-      console.log(this.source,"dskdksjbgkdsbgv")
+      this.data = data.result.gym_data;
     })
 }
-
-onCreateConfirm(event):void{
-
+onChange(deviceValue) {
+  console.log(deviceValue);
+};
+onChangeSort(value)
+{
+  console.log(value); 
 }
 
-onEditConfirm(event):void{
-
-}
-
-onDeleteConfirm(event): void {
-  if (window.confirm('Are you sure you want to delete?')) {
-    event.confirm.resolve();
-    this.userservice.deleteGym().subscribe((data)=>
-  {
-    console.log(data,"deltedd gym");
-  });
-  } else {
-    event.confirm.reject();
-  }
-}
 }

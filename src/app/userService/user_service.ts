@@ -11,7 +11,7 @@ export class user_service {
   constructor(public http: Http) { }
 
   login(data) { return this.http.post(
-      'http://localhost:8020/v1/boostAdmin/login',
+      'http://boostdev.ignivastaging.com:8050/v1/boostAdmin/login',
       data,
     )
       .map((res: Response) => res.json())
@@ -49,7 +49,7 @@ export class user_service {
     var header = new Headers();
     var token = localStorage.getItem('token');
     header.append('x-logintoken',token);
-    return this.http.post('http://localhost:8020/v1/boostAdmin/getAllGyms',{},{headers : header}).map((res:Response)=> res.json())
+    return this.http.post('http://boostdev.ignivastaging.com:8050/v1/boostAdmin/getAllGyms',{},{headers : header}).map((res:Response)=> res.json())
     .catch((error: any) =>{
       try{
         return(Observable.throw(error.json()));
@@ -65,7 +65,7 @@ export class user_service {
     var header = new Headers();
     var token = localStorage.getItem('token');
     header.append('x-logintoken',token);
-    return this.http.post('http://localhost:8020/v1/boostAdmin/deleteGym',JSON.stringify({ "gymId" : '59bbc86cb498ca26714147b8' }),{headers: header}).map((res:Response)=> res.json())
+    return this.http.post('http://localhost:8020/v1/boostAdmin/deleteGym',JSON.stringify({ "gymId" : '59c3716538ab051b3659faf9' }),{headers: header}).map((res:Response)=> res.json())
     .catch((error: any) =>{
       try{
         return(Observable.throw(error.json()));

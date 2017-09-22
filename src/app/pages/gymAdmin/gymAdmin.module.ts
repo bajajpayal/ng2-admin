@@ -10,6 +10,7 @@ import { AppTranslationModule } from '../../app.translation.module';
 import { NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 //import { Modals } from '../ui/components/modals/modals.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { DataTableModule } from "angular2-datatable";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     Ng2SmartTableModule,
     AppTranslationModule,
     NgaModule,
+    DataTableModule,
     NgbDropdownModule,
     NgbModalModule,
   ],
