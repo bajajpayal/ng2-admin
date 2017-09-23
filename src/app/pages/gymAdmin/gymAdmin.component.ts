@@ -19,7 +19,7 @@ export class GymAdminComponent {
   sortOrder = "asc";
 
   constructor( private userservice: user_service, private router: Router) {
-    this.userservice.getAllGyms().subscribe((data)=>
+    this.userservice.getAllGyms(10).subscribe((data)=>
     {
       console.log(data.result.gym_data,"getallgymm-----------")
       this.data = data.result.gym_data;
@@ -27,6 +27,12 @@ export class GymAdminComponent {
 }
 onChange(deviceValue) {
   console.log(deviceValue);
+  console.log(parseInt(deviceValue));
+  this.userservice.getAllGyms(deviceValue).subscribe((data)=>
+  {
+    console.log(data.result.gym_data,"getallgymm-----------")
+    this.data = data.result.gym_data;
+  })
 };
 onChangeSort(value)
 {

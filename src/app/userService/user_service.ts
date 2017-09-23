@@ -44,12 +44,17 @@ export class user_service {
   })
   };
 
-  getAllGyms()
+  getAllGyms(deviceValue)
   {
     var header = new Headers();
     var token = localStorage.getItem('token');
     header.append('x-logintoken',token);
-    return this.http.post('http://boostdev.ignivastaging.com:8050/v1/boostAdmin/getAllGyms',{},{headers : header}).map((res:Response)=> res.json())
+
+    return this.http.post('http://boostdev.ignivastaging.com:8050/v1/boostAdmin/getAllGyms',
+     ({"limit": deviceValue}),{headers : header})
+
+      .map((res:Response)=> res.json())
+
     .catch((error: any) =>{
       try{
         return(Observable.throw(error.json()));

@@ -5,9 +5,9 @@
               <div class="col-sm-2">
                   <label class="label-control">Rows on page</label>
                   <select class="form-control input-sm" (change)="onChange($event.target.value)" [(ngModel)]="rowsOnPage">
-                  <option [ngValue]="5">5</option>
-                  <option [ngValue]="10">10</option>
-                  <option [ngValue]="15">15</option>
+                  <option [value]="5">5</option>
+                  <option [value]="10">10</option>
+                  <option [value]="15">15</option>
               </select>
               </div>
               <div class="col-sm-4">
