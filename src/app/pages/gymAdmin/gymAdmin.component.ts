@@ -13,6 +13,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 export class GymAdminComponent {
   data;
   limit;
+  filter;
   
   rowsOnPage = 5;
   sortBy = "name";
@@ -25,6 +26,22 @@ export class GymAdminComponent {
       this.data = data.result.gym_data;
     })
 }
+onEnter(v:string)
+{
+  this.filter = v;
+  console.log(this.filter);
+  this.userservice.getAllGyms(this.filter).subscribe((data)=>
+  {
+    console.log(data.result.gym_data,"getallgymm-----------")
+    this.data = data.result.gym_data;
+  })
+}
+
+remove(item)
+{
+  console.log(item);
+}
+
 onChange(deviceValue) {
   console.log(deviceValue);
   console.log(parseInt(deviceValue));
