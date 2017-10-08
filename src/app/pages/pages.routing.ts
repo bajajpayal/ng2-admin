@@ -24,7 +24,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'gymAdmin', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-      { path: 'gymAdmin', loadChildren: './gymAdmin/GymAdmin.module#GymAdminModule' },
+      { path: 'gymAdmin', loadChildren: './gymAdmin/gymAdmin.module#gymAdminModule' },
       { path: 'subscription', loadChildren: './subscription/subscription.module#subscriptionModule' },
       { path: 'editors', loadChildren: './editors/editors.module#EditorsModule' },
       { path: 'components', loadChildren: './components/components.module#ComponentsModule' },

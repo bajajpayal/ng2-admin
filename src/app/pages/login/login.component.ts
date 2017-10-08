@@ -31,7 +31,6 @@ export class Login {
       const data = {
         email : this.form.value.email,
         password : this.form.value.password,
-        role : 1  
       };
       this.userservice.login(data).subscribe(
         (result)=>

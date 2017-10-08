@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { GymAdminComponent } from './gymAdmin.component';
+import { gymAdminComponent } from './gymAdmin.component';
 import { routing } from './gymAdmin.routing';
 import { NgaModule } from '../../theme/nga.module';
 //import { Ui } from '../ui/ui.component';
@@ -27,7 +27,7 @@ import { DataTableModule } from "angular2-datatable";
     NgbModalModule,
   ],
   declarations: [
-    GymAdminComponent
+    gymAdminComponent
   ]
 })
-export class GymAdminModule {}
+export class gymAdminModule {}

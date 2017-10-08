@@ -11,7 +11,7 @@ export class user_service {
   constructor(public http: Http) { }
 
   login(data) { return this.http.post(
-      'http://localhost:8020/v1/boostAdmin/login',
+      'http://localhost:8001/users/login',
       data,
     )
       .map((res: Response) => res.json())
@@ -61,14 +61,13 @@ export class user_service {
             }
           })
   }
-  getAllGyms(deviceValue)
+  getAllGyms()
   {
-    var header = new Headers();
-    var token = localStorage.getItem('token');
-    header.append('x-logintoken',token);
+    // var header = new Headers();
+    // var token = localStorage.getItem('token');
+    // header.append('x-logintoken',token);
 
-    return this.http.post('http://localhost:8020/v1/boostAdmin/getAllGyms',
-     ({"limit": deviceValue}),{headers : header})
+    return this.http.get('http://localhost:8001/users/getAllUsers')
 
       .map((res:Response)=> res.json())
 
