@@ -45,15 +45,21 @@
                   <thead>
                       <tr>
                           <th style="width: 10%"></th>
-                          <th style="width: 20%">
+                          <th style="width: 10%">
                               <mfDefaultSorter by="gymName">Name</mfDefaultSorter>
                           </th>
-                          <th style="width: 30%">
+                          <th style="width: 10%">
                               <mfDefaultSorter by="gymAdminemail">Email</mfDefaultSorter>
                           </th>
                           <th style="width: 10%">
-                              <mfDefaultSorter by="address">PhonoNo</mfDefaultSorter>
+                              <mfDefaultSorter by="address">AddressLine1</mfDefaultSorter>
                           </th>
+                          <th style="width: 10%">
+                                <mfDefaultSorter by="address">City_Country</mfDefaultSorter>
+                            </th>
+                            <th style="width: 10%">
+                                    <mfDefaultSorter by="address">Country</mfDefaultSorter>
+                                </th>
                           <th style="width: 10%">
                               <mfDefaultSorter [by]="actions">Actions</mfDefaultSorter>
                           </th>
@@ -73,10 +79,12 @@
                           <td>
                               <button (click)="remove(item)" class="btn btn-danger">x</button>
                           </td>
-                          <td>{{item.name}}</td>
-                          <td>{{item.email}}</td>
-                          <td>{{item.phoneNo}}</td>
-                          <td><a href="#" data-toggle="modal" (click)="lgModalShow()"> <i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                          <td>{{item.gymName}}</td>
+                          <td>{{item.gymAdminemail}}</td>
+                          <td>{{item.address.addressLine1}}</td>
+                          <td>{{item.address.city_county}}</td>
+                          <td>{{item.address.country}}</td>
+                          <td><a href="#" data-toggle="modal" (click)="lgModalShow(item.gymName,item.gymAdminemail,item.address.addressLine1,item.address.city_county,item.address.country)"> <i class="fa fa-eye" aria-hidden="true"></i></a></td>
                       </tr>
   
                   </tbody>

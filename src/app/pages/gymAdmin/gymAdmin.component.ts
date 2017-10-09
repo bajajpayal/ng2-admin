@@ -23,13 +23,19 @@ export class gymAdminComponent {
   constructor( private userservice: user_service, private router: Router,private modalService: NgbModal) {
     this.userservice.getAllGyms().subscribe((data)=>
     {
-      console.log(data.result,"getallgymm-----------")
-      this.data = data.result;
+      console.log(data.result.gym_data,"getallgymm-----------")
+      this.data = data.result.gym_data;
     })
 }
-  lgModalShow() {
+  lgModalShow(name,email,address,city,country) {
+    console.log(name,email,address,city,country,"sdjkdjkgkd0");
     const activeModal = this.modalService.open(DefaultModal, {size: 'lg'});
     activeModal.componentInstance.modalHeader = 'User Form';
+    activeModal.componentInstance.email = email;
+    activeModal.componentInstance.name = name;
+    activeModal.componentInstance.address = address;
+    activeModal.componentInstance.city = city;
+    activeModal.componentInstance.country = country;
   }
 onEnter(v:string)
 {

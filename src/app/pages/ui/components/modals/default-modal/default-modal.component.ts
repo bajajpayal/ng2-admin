@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { user_service } from '../../../../../userService/user_service';
 
 @Component({
   selector: 'add-service-modal',
@@ -10,19 +11,47 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class DefaultModal implements OnInit {
 
   modalHeader: string;
-  modalContent: string = `Lorem ipsum dolor sit amet,
-   consectetuer adipiscing elit, sed diam nonummy
-   nibh euismod tincidunt ut laoreet dolore magna aliquam
-   erat volutpat. Ut wisi enim ad minim veniam, quis
-   nostrud exerci tation ullamcorper suscipit lobortis
-   nisl ut aliquip ex ea commodo consequat.`;
+  email : string;
+  name : string;
+  address: string;
+  city: string;
+  country: string;
 
-  constructor(private activeModal: NgbActiveModal) {
+  constructor(private activeModal: NgbActiveModal, private userservice: user_service) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.email = this.email;
+    console.log(this.email)
+    this.name = this.name;
+    this.address = this.address;
+    this.city = this.city;
+    this.country = this.country;
+    console.log(this.email,this.name,this.address,this.city,this.country,"hellloooooooooo")
+  }
 
   closeModal() {
     this.activeModal.close();
+  }
+
+  editGym()
+  {
+    console.log(this.email,"emailllll");
+    let obj ={
+      gymId: '59d48bf0b1094b0f9d1d82fd',
+      gymName: this.name,
+      //email : this.email,
+      addressLine1:this.address ,
+      city_county: this.city,
+      country:this.country
+    }
+    this.userservice.editGym(this.name,this.address,this.city,this.country).subscribe((result)=>
+  {
+    console.log(result);
+    if(result.status == 'success')
+    {
+      
+    }
+  })
   }
 }

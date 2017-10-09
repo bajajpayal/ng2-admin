@@ -6,7 +6,7 @@ import { NgaModule } from '../theme/nga.module';
 import { AppTranslationModule } from '../app.translation.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { DataTableModule } from "angular2-datatable";
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Pages } from './pages.component';
 
 @NgModule({
@@ -15,7 +15,8 @@ import { Pages } from './pages.component';
       NgaModule,
       routing,
       Ng2SmartTableModule,
-      DataTableModule
+      DataTableModule,
+      FormsModule
     ],
   declarations: 
   [

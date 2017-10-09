@@ -11,7 +11,7 @@ export class user_service {
   constructor(public http: Http) { }
 
   login(data) { return this.http.post(
-      'http://localhost:8001/users/login',
+      'http://localhost:8020/v1/boostAdmin/login',
       data,
     )
       .map((res: Response) => res.json())
@@ -63,11 +63,11 @@ export class user_service {
   }
   getAllGyms()
   {
-    // var header = new Headers();
-    // var token = localStorage.getItem('token');
-    // header.append('x-logintoken',token);
-
-    return this.http.get('http://localhost:8001/users/getAllUsers')
+    var header = new Headers();
+    var token = localStorage.getItem('token');
+    header.append('x-logintoken',token);
+    console.log(header,"headererererere")
+    return this.http.post('http://localhost:8020/v1/boostAdmin/getAllGyms',{},{headers:header})
 
       .map((res:Response)=> res.json())
 
@@ -80,7 +80,29 @@ export class user_service {
       }
     })
   };
-
+  editGym(name,address,city,country)
+  {
+    var header = new Headers();
+    var token = localStorage.getItem('token');
+    header.append('x-logintoken',token);
+    let formdata= new FormData();
+    formdata.append('gymId', '59d48bf0b1094b0f9d1d82fd');
+    formdata.append('gymName',name);
+    formdata.append('addressLine1',address);
+    formdata.append('city_county',city);
+    formdata.append('country',country);
+    return this.http.put('http://localhost:8020/v1/boostAdmin/editGym',formdata,{headers: header})
+    .map((res:Response)=> res.json())
+    
+        .catch((error: any) =>{
+          try{
+            return(Observable.throw(error.json()));
+          }catch(jsonError)
+          {
+            return(jsonError);
+          }
+        })
+  }
 
   deleteGym()
   {
