@@ -29,8 +29,7 @@ public onSubmit(values: Object): void {
   this.submitted = true;
   if (this.form.valid) {
     const data = {
-      email : this.form.value.email,
-      role : 1  
+      email : this.form.value.email
     };
     this.userservice.forget(data).subscribe(
       (result)=>

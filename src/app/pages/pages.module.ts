@@ -8,6 +8,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { DataTableModule } from "angular2-datatable";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Pages } from './pages.component';
+import {GrowlModule} from 'primeng/primeng';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [CommonModule, 
@@ -16,7 +19,10 @@ import { Pages } from './pages.component';
       routing,
       Ng2SmartTableModule,
       DataTableModule,
-      FormsModule
+      FormsModule,
+      GrowlModule,
+      BrowserAnimationsModule,
+      ToastModule.forRoot()
     ],
   declarations: 
   [

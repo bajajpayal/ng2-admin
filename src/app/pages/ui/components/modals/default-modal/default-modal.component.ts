@@ -1,11 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewContainerRef} from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { user_service } from '../../../../../userService/user_service';
+import {Message} from 'primeng/components/common/api';
+import {MessageService} from 'primeng/components/common/messageservice';
+import {GrowlModule} from 'primeng/primeng';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'add-service-modal',
   styleUrls: [('./default-modal.component.scss')],
-  templateUrl: './default-modal.component.html'
+  templateUrl: './default-modal.component.html',
+  providers: [MessageService]
 })
 
 export class DefaultModal implements OnInit {
@@ -16,8 +21,10 @@ export class DefaultModal implements OnInit {
   address: string;
   city: string;
   country: string;
+  msgs: Message[] = [];
 
-  constructor(private activeModal: NgbActiveModal, private userservice: user_service) {
+  constructor(private _toastr: ToastsManager,vcr: ViewContainerRef, private activeModal: NgbActiveModal, private messageService: MessageService ,private userservice: user_service) {
+    this._toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
@@ -50,7 +57,10 @@ export class DefaultModal implements OnInit {
     console.log(result);
     if(result.status == 'success')
     {
-      
+     
+      //this.activeModal.close();
+      this._toastr.success(`User registered successfully!`, 'success',);
+      console.log(this._toastr,"ehrhehrhehrehrhehrehrehrehrehrh")
     }
   })
   }
